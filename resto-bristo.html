@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taste Trail Bistro</title>
+  <link rel="icon" type="image/x-icon" href="Logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    .nav-bar {
+      background-color: #000;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-bar a {
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+      color: #f5a623;
+    }
+
+    /* Hero Section */
+    .home {
+      background-color: #ffefd5;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .home h1 {
+      font-size: 60px;
+      font-family: 'Great Vibes', cursive;
+      color: #444;
+    }
+
+    .moto {
+      background-image: url('interior.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      position: relative;
+      color: white;
+      text-align: center;
+    }
+
+    .moto::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .moto * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .moto h2 {
+      font-size: 48px;
+      font-style: italic;
+    }
+
+    .tagline {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      margin-top: 30px;
+    }
+
+    .button, .button1 {
+      background-color: #f5a623;
+      padding: 10px 20px;
+      margin: 10px;
+      display: inline-block;
+      color: white;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .button:hover, .button1:hover {
+      background-color: #e69500;
+    }
+
+    /* About Us */
+    .about-section {
+      padding: 60px 20px;
+      background-color: white;
+    }
+
+    .about-section h3 {
+      text-align: center;
+      font-size: 36px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .about-section p {
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Menu Section */
+    .menu {
+      background-color: #fff7ed;
+      padding: 40px 20px;
+    }
+
+    .menu h4 {
+      text-align: center;
+      font-size: 40px;
+      background-color: #000;
+      color: white;
+      padding: 16px;
+      margin-bottom: 40px;
+    }
+
+    .categories {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .categories h5 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .menu-table {
+      width: 90%;
+      max-width: 700px;
+      margin: auto;
+      border-collapse: collapse;
+      font-family: 'Dancing Script', cursive;
+      font-size: 18px;
+      background-color: #eee;
+    }
+
+    .menu-table td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .menu-table tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    /* Reservation */
+    .reservation {
+      background-color: #000;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .reservation h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .reservation-form {
+      background-color: white;
+      color: #000;
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .reservation-form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .reservation-form button {
+      background-color: #f5a623;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .reservation-form button:hover {
+      background-color: #e69500;
+    }
+
+    /* Contact */
+    .contact {
+      background-color: #111;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f5a623;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+      }
+
+      .home h1 {
+        font-size: 40px;
+      }
+
+      .moto h2 {
+        font-size: 32px;
+      }
+
+      .menu-table {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT US</a>
+    <a href="#menu">MENU</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="home" id="home">
+    <h1>Taste Trail Bistro</h1>
+  </div>
+
+  <!-- Moto Section -->
+  <section class="moto">
+    <h2>Every Flavor Tells a Story...</h2>
+    <p class="tagline"><b>Locally Sourced. Globally Inspired. Authentically Crafted!</b></p>
+    <div class="bar">
+      <a href="#reservation" class="button">Reservations</a>
+      <a href="#menu" class="button1">View Menu</a>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="about-section" id="about">
+    <h3>About Us</h3>
+    <p>
+      At TasteTrail Bistro, every dish is a journey. Nestled in the heart of the city, we bring together the warmth of local hospitality with bold global flavors. Our culinary philosophy is simple: use fresh, seasonal ingredients and craft meals that tell a story.
+      Whether you're here for a cozy dinner, a celebration with friends, or just a quick bite, our chefs strive to make every visit memorable. From farm to fork, every flavor is thoughtfully curated to make your dining experience unforgettable.
+      <br><br>
+      🌱 Locally sourced ingredients<br>
+      🌍 Globally inspired dishes<br>
+      👨‍🍳 Chef-driven seasonal menu<br>
+      🎶 Cozy ambiance with live music nights<br>
+      ❤️ A team that treats every guest like family
+    </p>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <h4>Our Menu</h4>
+
+    <div class="categories">
+      <h5>STARTERS</h5>
+      <table class="menu-table">
+        <tr><td>Bruschetta</td><td>$6</td></tr>
+        <tr><td>Garlic Bread</td><td>$5</td></tr>
+        <tr><td>Soup of the Day</td><td>$7</td></tr>
+      </table>
+    </div>
+
+    <div class="categories">
+      <h5>MAIN COURSE</h5>
+      <table class="menu-table">
+        <tr><td>Grilled Chicken Alfredo</td><td>$15</td></tr>
+        <tr><td>Vegetable Stir Fry</td><td>$13</td></tr>
+        <tr><td>Beef Tenderloin</td><td>$20</td></tr>
+      </table>
+    </div>
+
+    <div class="categories">
+      <h5>DESSERTS</h5>
+      <table class="menu-table">
+        <tr><td>Chocolate Cake</td><td>$6</td></tr>
+        <tr><td>Vanilla Cheesecake</td><td>$6</td></tr>
+        <tr><td>Fruit Salad</td><td>$4</td></tr>
+      </table>
+    </div>
+
+    <div class="categories">
+      <h5>BEVERAGES</h5>
+      <table class="menu-table">
+        <tr><td>Lemonade</td><td>$4</td></tr>
+        <tr><td>Herbal Tea</td><td>$2</td></tr>
+        <tr><td>Cold Coffee</td><td>$5</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Reservation -->
+  <section class="reservation" id="reservation">
+    <h2>Reserve a Table</h2>
+    <form class="reservation-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required><br><br>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required><br><br>
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" required><br><br>
+
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      📍 123 Main Street, Foodie City<br>
+      📞 (555) 123-4567<br>
+      📧 hello@tastetrailbistro.com
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 TasteTrail Bistro</p>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#home">Back to Top</a>
+    </p>
+  </footer>
+
+</body>
+</html>
